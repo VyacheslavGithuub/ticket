@@ -10,18 +10,22 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    title: 'Вход',
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    title: 'Профиль',
   },
   {
     path: 'tickets',
     component: TicketsComponent,
+    title: 'Задачи',
   },
   {
     path: 'tickets/:id',
     component: TicketComponent,
+    title: 'Задача',
   },
   { path: '**', component: NotFoundComponent },
 ];
