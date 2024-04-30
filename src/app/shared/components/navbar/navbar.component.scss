@@ -1,0 +1,186 @@
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  padding: 32px 20px;
+
+  background-color: #4b4e51;
+  border-radius: 0 12px 12px 0;
+}
+
+.logo {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 23px;
+  padding: 12px 16px;
+
+  overflow: hidden;
+
+  transition: all 0.3s ease-in-out;
+
+  &__header {
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+
+    &__services {
+      color: white;
+      font-weight: 550;
+      font-size: 12px;
+      white-space: nowrap;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    &__name {
+      color: white;
+      font-weight: bold;
+      font-size: 32px;
+    }
+
+    &__closed {
+      letter-spacing: 16px;
+
+      .logo {
+        &__services {
+          color: #4b4e51;
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 47px;
+    right: -12px;
+
+    cursor: pointer;
+
+    &__open {
+      transform: rotate(180deg);
+    }
+
+    &__closed {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__button {
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__show {
+    width: 247px;
+  }
+
+  &__hide {
+    width: 56px;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  overflow: hidden;
+
+  transition: all 0.3s ease-in-out;
+
+  &__element {
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+
+    padding: 12px 16px;
+
+    font-size: 16px;
+    font-style: normal;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &__default {
+      color: grey;
+      font-weight: 300;
+    }
+
+    &__active {
+      color: white;
+      font-weight: 550;
+
+      background-color: grey;
+      border-radius: 8px;
+    }
+
+    &__hr {
+      margin: 12px 0;
+
+      background-color: #dfe1df;
+    }
+
+    &__notif {
+      &__mini {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+
+        width: 6px;
+        height: 6px;
+
+        background-color: #ef373e;
+        border-radius: 100%;
+      }
+
+      &__full {
+        margin-left: 5px;
+        padding: 6px 8px 4px;
+
+        color: white;
+        font-weight: 300;
+        font-size: 12px;
+
+        background-color: #ef373e;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__show {
+    width: 247px;
+  }
+
+  &__hide {
+    width: 56px;
+  }
+}
+
+.exit {
+  height: 30px;
+
+  color: #fff;
+
+  background-color: #979797;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #b1b2b2;
+  }
+}
+
+.test {
+  opacity: 0;
+}
