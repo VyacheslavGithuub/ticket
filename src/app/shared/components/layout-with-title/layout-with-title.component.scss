@@ -1,0 +1,18 @@
+.layout-with-title {
+  height: 100%;
+  padding: 0 var(--padding-l) var(--padding-m);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 10%;
+  }
+
+  &__content {
+    height: 90%;
+  }
+}
+
+.active-link {
+  color: black !important;
+}
