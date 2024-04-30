@@ -1,6 +1,8 @@
 <nav class="navbar" [ngClass]="{ 'navbar-show': isFullSize }">
   <div class="navbar__logo">
-    <h2 class="navbar__logo__name" [ngClass]="{ 'navbar__logo__name-show': isFullSize }">Ticket</h2>
+    <h2 class="navbar__logo__name" [ngClass]="{ 'navbar__logo__name-show': isFullSize }">
+      {{ title }}
+    </h2>
 
     <img
       class="navbar__logo__arrow"

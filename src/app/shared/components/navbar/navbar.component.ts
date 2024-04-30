@@ -16,6 +16,7 @@ export interface INavbarLinks {
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+  @Input({ required: true }) title = '';
   @Input({ required: true }) navLinks: INavbarLinks[] = [];
   isFullSize = true;
 
