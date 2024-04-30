@@ -1,45 +1,29 @@
-<nav>
-  <div
-    class="logo"
-    [ngClass]="{
-      'logo--show': isFullSize,
-      'logo--hide': !isFullSize
-    }"
-  >
-    <div
-      class="logo__header"
-      [ngClass]="isFullSize ? 'logo__header__open' : 'logo__header__closed'"
-      (click)="handleSizeButtonClick(!isFullSize)"
-    >
-      <span class="logo__name">Ticket</span> <br />
-      <span class="logo__services">manager</span>
-    </div>
-    <ui-svg
-      class="logo__arrow"
-      src="assets/icons/navbarArrow.svg"
-      [ngClass]="isFullSize ? 'logo__arrow__open' : 'logo__arrow__closed'"
-      (click)="handleSizeButtonClick(!isFullSize)"
-    ></ui-svg>
+<nav class="navbar" [ngClass]="{ 'navbar-show': isFullSize }">
+  <div class="navbar__logo">
+    <h2 class="navbar__logo__name" [ngClass]="{ 'navbar__logo__name-show': isFullSize }">Ticket</h2>
+
+    <img
+      class="navbar__logo__arrow"
+      ngSrc="assets/icons/IconNavbarArrow.svg"
+      height="32"
+      width="32"
+      [ngClass]="{ 'navbar__logo__arrow-show': isFullSize }"
+      (click)="handleSizeButtonClick()"
+    />
   </div>
-  <div
-    class="navbar"
-    [ngClass]="{
-      'navbar--show': isFullSize,
-      'navbar--hide': !isFullSize
-    }"
-  >
-    @for (link of navLinks; track $index) {
+  <div class="navbar__content">
+    @for (link of navLinks; track $index; let last = $last) {
+      @if (last) {
+        <div class="navbar__content__dividing-strip"></div>
+      }
       <a
-        class="navbar__element"
+        class="navbar__content__element"
         routerLink="{{ link.path }}"
         routerLinkActive
         #rla="routerLinkActive"
-        [ngClass]="{
-          'navbar__element--active': rla.isActive,
-          'navbar__element--default': !rla.isActive
-        }"
+        [ngClass]="{ 'navbar__content__element-active': rla.isActive }"
       >
-        <img [src]="'assets/icons/navbar/' + link.icon" />
+        <img [src]="link.icon" />
         <span>{{ link.name }}</span>
       </a>
     }

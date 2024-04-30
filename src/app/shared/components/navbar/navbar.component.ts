@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-interface INavLinks {
+export interface INavbarLinks {
   path: string;
   name: string;
   icon: string;
@@ -11,27 +11,15 @@ interface INavLinks {
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgClass, RouterLink, RouterLinkActive],
+  imports: [NgClass, RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  isFullSize = false;
-  navLinks: INavLinks[] = [
-    { path: '/profile', name: 'Профиль', icon: 'IconNavbarHome.svg' },
-    {
-      path: '/tickets',
-      name: 'Задачи',
-      icon: 'iconNavbarRates.svg',
-    },
-    {
-      path: '/login',
-      name: 'Выход',
-      icon: 'iconNavbarRates.svg',
-    },
-  ];
+  @Input({ required: true }) navLinks: INavbarLinks[] = [];
+  isFullSize = true;
 
-  handleSizeButtonClick(flag: boolean): void {
-    this.isFullSize = flag;
+  handleSizeButtonClick(): void {
+    this.isFullSize = !this.isFullSize;
   }
 }
