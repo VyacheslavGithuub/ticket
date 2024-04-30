@@ -1,0 +1,33 @@
+<nav class="navbar" [ngClass]="{ 'navbar-show': isFullSize }">
+  <div class="navbar__logo">
+    <h2 class="navbar__logo__name" [ngClass]="{ 'navbar__logo__name-show': isFullSize }">
+      {{ title }}
+    </h2>
+
+    <img
+      class="navbar__logo__arrow"
+      ngSrc="assets/icons/IconNavbarArrow.svg"
+      height="32"
+      width="32"
+      [ngClass]="{ 'navbar__logo__arrow-show': isFullSize }"
+      (click)="handleSizeButtonClick()"
+    />
+  </div>
+  <div class="navbar__content">
+    @for (link of navLinks; track $index; let last = $last) {
+      @if (last) {
+        <div class="navbar__content__dividing-strip"></div>
+      }
+      <a
+        class="navbar__content__element"
+        routerLink="{{ link.path }}"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [ngClass]="{ 'navbar__content__element-active': rla.isActive }"
+      >
+        <img [src]="link.icon" />
+        <span>{{ link.name }}</span>
+      </a>
+    }
+  </div>
+</nav>

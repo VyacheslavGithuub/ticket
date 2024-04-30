@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { INavbarLinks, NavbarComponent } from '../navbar/navbar.component';
+import { LayoutWithTitleComponent } from '../layout-with-title/layout-with-title.component';
+
+@Component({
+  selector: 'app-layout-page',
+  standalone: true,
+  imports: [NavbarComponent, LayoutWithTitleComponent, RouterOutlet],
+  templateUrl: './layout-page.component.html',
+  styleUrl: './layout-page.component.scss',
+})
+export class LayoutPageComponent {
+  navLinks: INavbarLinks[] = [
+    { path: '/profile', name: 'Профиль', icon: 'assets/icons/IconPerson.svg' },
+    {
+      path: '/tickets',
+      name: 'Задачи',
+      icon: 'assets/icons/IconPerson.svg',
+    },
+    {
+      path: '/login',
+      name: 'Выход',
+      icon: 'assets/icons/IconExit.svg',
+    },
+  ];
+}
