@@ -23,7 +23,6 @@ import { UiInputComponent } from '../../shared/UI/ui-input/ui-input.component';
 export class LoginComponent {
   isLogin = true;
   formLogin: IUserFormGroup = nnfb.group({
-    // id: nnfb.control(uuidv4()),
     login: nnfb.control('', Validators.required),
     password: nnfb.control('', [Validators.required, Validators.minLength(6)]),
   });
