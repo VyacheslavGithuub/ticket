@@ -18,7 +18,7 @@ export interface INavbarLinks {
 export class NavbarComponent {
   @Input({ required: true }) title = '';
   @Input({ required: true }) navLinks: INavbarLinks[] = [];
-  isFullSize = true;
+  isFullSize = false;
 
   handleSizeButtonClick(): void {
     this.isFullSize = !this.isFullSize;

@@ -12,12 +12,12 @@ import { LayoutWithTitleComponent } from '../layout-with-title/layout-with-title
 })
 export class LayoutPageComponent {
   navLinks: INavbarLinks[] = [
-    { path: '/profile', name: 'Профиль', icon: 'assets/icons/IconPerson.svg' },
     {
       path: '/tickets',
       name: 'Задачи',
-      icon: 'assets/icons/IconPerson.svg',
+      icon: 'assets/icons/IconTickets.svg',
     },
+    { path: '/profile', name: 'Профиль', icon: 'assets/icons/IconPerson.svg' },
     {
       path: '/login',
       name: 'Выход',
