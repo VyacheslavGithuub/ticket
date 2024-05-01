@@ -1,3 +1,3 @@
 export const environment = {
-  urlUser: 'src/server/api-users',
+  users: 'http://localhost:3000',
 };

@@ -6,6 +6,7 @@ import { nnfb } from '../../shared/helpers/nnfb';
 import { IUserFormGroup } from '../../shared/api/api-users/api-user';
 import { UiPasswordComponent } from '../../shared/UI/ui-password/ui-password.component';
 import { UiInputComponent } from '../../shared/UI/ui-input/ui-input.component';
+import { ApiUsersService } from '../../shared/api/api-users/api-users.service';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +22,19 @@ import { UiInputComponent } from '../../shared/UI/ui-input/ui-input.component';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  isLogin = true;
+  isLogin: 'login' | 'register' = 'login';
   formLogin: IUserFormGroup = nnfb.group({
-    login: nnfb.control('', Validators.required),
+    email: nnfb.control('', Validators.required),
     password: nnfb.control('', [Validators.required, Validators.minLength(6)]),
   });
 
-  changeLogin(check: boolean) {
+  constructor(private apiUsersService: ApiUsersService) {}
+
+  changeLogin(check: 'login' | 'register') {
     this.isLogin = check;
+  }
+
+  submitForm() {
+    this.apiUsersService.loginAndRegistration(this.isLogin, this.formLogin.value);
   }
 }

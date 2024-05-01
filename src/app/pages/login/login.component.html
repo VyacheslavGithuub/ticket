@@ -1,19 +1,22 @@
 <div class="login full-screen">
   <div class="login__content">
     <div class="login__content__header">
-      <button [ngClass]="{ 'login__content__header-active': isLogin }" (click)="changeLogin(true)">
+      <button
+        [ngClass]="{ 'login__content__header-active': isLogin === 'login' }"
+        (click)="changeLogin('login')"
+      >
         Вход
       </button>
       /
       <button
-        [ngClass]="{ 'login__content__header-active': !isLogin }"
-        (click)="changeLogin(false)"
+        [ngClass]="{ 'login__content__header-active': isLogin === 'register' }"
+        (click)="changeLogin('register')"
       >
         Регистрация
       </button>
     </div>
-    <form class="login__content__form" [formGroup]="formLogin">
-      <ui-input [control]="formLogin.controls.login" />
+    <form class="login__content__form" [formGroup]="formLogin" (ngSubmit)="submitForm()">
+      <ui-input [control]="formLogin.controls.email" />
       <ui-password [control]="formLogin.controls.password" />
       <button class="button-main" [disabled]="formLogin.invalid" type="submit">
         {{ isLogin ? 'Войти' : 'Зарегистрироваться' }}
