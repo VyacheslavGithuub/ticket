@@ -1,0 +1,4 @@
+<input class="ui-input" placeholder="Логин" [formControl]="control" />
+@if (control.invalid && control.touched) {
+  <ui-label>Поле обязательно к заполнению</ui-label>
+}

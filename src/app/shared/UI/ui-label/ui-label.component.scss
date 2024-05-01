@@ -1,0 +1,19 @@
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ui-label {
+  display: block;
+  margin-top: 8px;
+
+  color: crimson;
+  font-size: var(--fs-xs);
+
+  animation: appearance 0.3s forwards;
+}
