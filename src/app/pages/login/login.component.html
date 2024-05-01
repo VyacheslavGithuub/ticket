@@ -13,10 +13,7 @@
     </div>
     <form class="login__content__form" [formGroup]="formLogin">
       <input placeholder="Логин" />
-      <div class="password-input">
-        <input id="password" type="password" formControlName="password" required />
-        <button type="button" (click)="togglePasswordVisibility()">Показать</button>
-      </div>
+      <ui-password [control]="formLogin.controls.password" />
       <button [disabled]="formLogin.invalid">{{ isLogin ? 'Войти' : 'Зарегистрироваться' }}</button>
     </form>
   </div>
