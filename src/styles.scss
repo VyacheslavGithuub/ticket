@@ -19,6 +19,10 @@
   line-height: 100%;
 }
 
+body {
+  background-color: var(--color-secondary);
+}
+
 a {
   display: block;
 
@@ -38,4 +42,55 @@ p {
 .full-screen {
   width: 100%;
   height: 100lvh;
+}
+
+$input-bg-color: var(--color-secondary);
+$input-border-color: #ccc;
+$input-focus-border-color: var(--color-primary);
+$input-padding: 10px;
+$input-border-radius: 5px;
+
+input {
+  width: 100%;
+  padding: $input-padding;
+
+  font-size: 16px;
+
+  background-color: $input-bg-color;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+button {
+  width: 100%;
+  padding: $input-padding;
+
+  font-size: 16px;
+
+  background-color: $input-bg-color;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  cursor: pointer;
+
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    outline: none;
+  }
+}
+
+.error {
+  color: crimson;
 }

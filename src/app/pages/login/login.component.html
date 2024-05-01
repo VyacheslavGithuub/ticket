@@ -1,1 +1,23 @@
-<app-layout-with-title title="login works!"> 123 </app-layout-with-title>
+<div class="login full-screen">
+  <div class="login__content">
+    <div class="login__content__title">
+      <h1>
+        <span [ngClass]="{ 'login__content__title-active': isLogin }" (click)="changeLogin(true)"
+          >Вход</span
+        >
+        /
+        <span [ngClass]="{ 'login__content__title-active': !isLogin }" (click)="changeLogin(false)"
+          >Регистрация</span
+        >
+      </h1>
+    </div>
+    <form class="login__content__form" [formGroup]="formLogin">
+      <input placeholder="Логин" />
+      <div class="password-input">
+        <input id="password" type="password" formControlName="password" required />
+        <button type="button" (click)="togglePasswordVisibility()">Показать</button>
+      </div>
+      <button [disabled]="formLogin.invalid">{{ isLogin ? 'Войти' : 'Зарегистрироваться' }}</button>
+    </form>
+  </div>
+</div>

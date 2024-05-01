@@ -1,0 +1,9 @@
+import { FormControl, FormGroup } from '@angular/forms';
+
+export type IUserFormGroupValue = typeof userForm.controls;
+
+export type IUserFormGroup = FormGroup<{
+  id?: FormControl<string>;
+  login: FormControl<string>;
+  password: FormControl<string>;
+}>;
