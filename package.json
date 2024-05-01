@@ -3,15 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "dev": "ng serve",
+    "server": "json-server -w src/server/users.json ./node_modules/json-server-auth",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
-    "prepare": "husky install",
-    "server": "json-server -w src/server/users.json ./node_modules/json-server-auth"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
