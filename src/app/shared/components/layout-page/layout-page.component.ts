@@ -15,13 +15,13 @@ export class LayoutPageComponent {
     {
       path: '/tickets',
       name: 'Задачи',
-      icon: 'assets/icons/IconTickets.svg',
+      icon: 'assets/icons/navbar/IconTickets.svg',
     },
-    { path: '/profile', name: 'Профиль', icon: 'assets/icons/IconPerson.svg' },
+    { path: '/profile', name: 'Профиль', icon: 'assets/icons/navbar/IconPerson.svg' },
     {
       path: '/login',
       name: 'Выход',
-      icon: 'assets/icons/IconExit.svg',
+      icon: 'assets/icons/navbar/IconExit.svg',
     },
   ];
 }

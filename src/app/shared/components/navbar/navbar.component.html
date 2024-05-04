@@ -6,9 +6,10 @@
 
     <img
       class="navbar__logo__arrow"
-      ngSrc="assets/icons/IconNavbarArrow.svg"
+      ngSrc="../../../../assets/icons/navbar/IconNavbarArrow.svg"
       height="32"
       width="32"
+      alt="icon"
       [ngClass]="{ 'navbar__logo__arrow-show': isFullSize }"
       (click)="handleSizeButtonClick()"
     />
@@ -25,7 +26,7 @@
         #rla="routerLinkActive"
         [ngClass]="{ 'navbar__content__element-active': rla.isActive }"
       >
-        <img [src]="link.icon" />
+        <img [ngSrc]="link.icon" alt="icon" fill />
         <span>{{ link.name }}</span>
       </a>
     }

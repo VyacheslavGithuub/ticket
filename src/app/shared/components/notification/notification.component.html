@@ -1,0 +1,53 @@
+<div class="notifications">
+  @for (notification of notifications; track $index) {
+    <div
+      class="notification"
+      #refNotification
+      [ngClass]="notification.show"
+      [ngStyle]="{ 'top.px': notification.remoteNotificationHeight }"
+    >
+      <div class="notification__header">
+        <div [ngClass]="className(notification)">
+          @switch (notification.type) {
+            @case (2) {
+              <img
+                ngSrc="assets/icons/notification/iconError.svg"
+                alt="icon"
+                height="24"
+                width="24"
+              />
+            }
+            @case (3) {
+              <img
+                ngSrc="assets/icons/notification/iconInfo.svg"
+                alt="icon"
+                height="24"
+                width="24"
+              />
+            }
+            @default {
+              <img
+                ngSrc="assets/icons/notification/iconSuccess.svg"
+                alt="icon"
+                height="24"
+                width="24"
+              />
+            }
+          }
+        </div>
+        <img
+          (click)="close(notification, refNotification)"
+          ngSrc="assets/icons/notification/IconCross.svg"
+          alt="icon"
+          class="icon-cross"
+          height="16"
+          width="16"
+        />
+      </div>
+      <div>
+        <h3 class="title">{{ notification.title }}</h3>
+        <p class="description">{{ notification.message }}</p>
+      </div>
+    </div>
+  }
+</div>

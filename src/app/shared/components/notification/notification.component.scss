@@ -1,0 +1,94 @@
+@keyframes open {
+  from {
+    right: -1000px;
+
+    opacity: 0;
+  }
+
+  to {
+    right: 0;
+
+    opacity: 1;
+  }
+}
+
+@keyframes closed {
+  from {
+    right: 0;
+
+    opacity: 1;
+  }
+
+  to {
+    right: -1000px;
+    z-index: 0;
+
+    opacity: 0;
+  }
+}
+
+// Не используемые классы
+//.info .success .warning .error .beenShown
+
+.notifications {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 1000;
+
+  .notification {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 400px;
+    min-height: 103px;
+    margin-bottom: 8px;
+    padding: 16px;
+    overflow: hidden;
+
+    color: #fff;
+
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 24%) 0 3px 8px;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title {
+      color: #343841;
+      font-weight: 550;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .description {
+      color: #7b7c7d;
+      font-weight: 300;
+      font-size: 12px;
+    }
+  }
+
+  .open {
+    animation: 0.3s open linear;
+  }
+
+  .closed {
+    animation: 0.3s closed linear;
+  }
+
+  .pending {
+    z-index: 1;
+
+    transition: top 0.3s linear;
+  }
+
+  .icon-cross {
+    cursor: pointer;
+  }
+}

@@ -7,6 +7,7 @@ import { IUserFormGroup } from '../../shared/api/api-users/api-user';
 import { UiPasswordComponent } from '../../shared/UI/ui-password/ui-password.component';
 import { UiInputComponent } from '../../shared/UI/ui-input/ui-input.component';
 import { ApiUsersService } from '../../shared/api/api-users/api-users.service';
+import { NotificationService } from '../../shared/components/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -28,13 +29,21 @@ export class LoginComponent {
     password: nnfb.control('', [Validators.required, Validators.minLength(6)]),
   });
 
-  constructor(private apiUsersService: ApiUsersService) {}
+  constructor(
+    private apiUsersService: ApiUsersService,
+    private notificationService: NotificationService,
+  ) {}
 
   changeLogin(check: 'login' | 'register') {
     this.isLogin = check;
   }
 
   submitForm() {
-    this.apiUsersService.loginAndRegistration(this.isLogin, this.formLogin.value);
+    this.apiUsersService.loginAndRegistration(this.isLogin, this.formLogin.value).subscribe({
+      next: (data) => (document.cookie = `accessToken=${data.accessToken}`),
+      error: (error) => {
+        this.notificationService.error(error.error);
+      },
+    });
   }
 }

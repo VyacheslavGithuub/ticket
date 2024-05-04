@@ -6,3 +6,11 @@ export type IUserFormGroup = FormGroup<{
   email: FormControl<string>;
   password: FormControl<string>;
 }>;
+
+export interface ILoginAndRegistrationResponse {
+  accessToken: string;
+  user: {
+    email: string;
+    id: string;
+  };
+}
